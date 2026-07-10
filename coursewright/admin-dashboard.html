@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — Coursewright</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a href="index.html" class="brand"><span class="brand-mark"></span>Coursewright</a>
+    <nav class="side-nav">
+      <a href="admin-dashboard.html" class="active"><span class="dot"></span>Dashboard</a>
+      <a href="courses.html"><span class="dot"></span>Courses</a>
+      <a href="add-course.html"><span class="dot"></span>Add course</a>
+      <a href="notifications.html"><span class="dot"></span>Notifications</a>
+    </nav>
+    <div class="side-foot">
+      <div class="side-user"><div class="avatar">AK</div><div><div style="color:var(--text-inverse);">Anita Kapoor</div><small style="color:rgba(239,238,227,.55);">Administrator</small></div></div>
+      <a href="login.html" style="display:block; margin-top:14px; font-size:.8rem; opacity:.6;">Log out</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div><div class="eyebrow">Overview</div><h1>Admin dashboard</h1></div>
+      <a href="add-course.html" class="btn btn-primary">+ Add course</a>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="num">1,204</div><div class="lbl">Total students</div><div class="delta up">+38 this month</div></div>
+      <div class="stat"><div class="num">6</div><div class="lbl">Total courses</div></div>
+      <div class="stat"><div class="num">2,910</div><div class="lbl">Active enrollments</div></div>
+      <div class="stat"><div class="num">61%</div><div class="lbl">Avg. completion rate</div><div class="delta up">↑ 4% this month</div></div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1.5fr 1fr; gap:24px;">
+      <div class="card card-pad">
+        <div class="topbar" style="margin-bottom:14px;">
+          <h3 style="margin:0;">Completion by course</h3>
+          <a href="courses.html" style="font-size:.83rem;">Manage courses →</a>
+        </div>
+        <table>
+          <thead><tr><th>Course</th><th>Enrolled</th><th style="width:200px;">Avg. completion</th></tr></thead>
+          <tbody>
+            <tr><td>Full Stack Development</td><td>184</td><td><div class="progress-bar"><span style="width:58%;"></span></div></td></tr>
+            <tr><td>React Fundamentals</td><td>210</td><td><div class="progress-bar"><span style="width:64%;"></span></div></td></tr>
+            <tr><td>Database Management (DBMS)</td><td>399</td><td><div class="progress-bar"><span style="width:88%;"></span></div></td></tr>
+            <tr><td>Python for Data Analysis</td><td>301</td><td><div class="progress-bar"><span style="width:41%;"></span></div></td></tr>
+            <tr><td>Cloud Computing Basics</td><td>96</td><td><div class="progress-bar"><span style="width:22%;"></span></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card card-pad">
+        <h3>Recent activity</h3>
+        <div class="rail mt-16">
+          <div class="rail-item">
+            <div class="rail-marker"><div class="rail-node current">•</div><div class="rail-track"></div></div>
+            <div class="rail-content"><h4>Course published</h4><small class="muted">Cloud Computing Basics — 1 hour ago</small></div>
+          </div>
+          <div class="rail-item">
+            <div class="rail-marker"><div class="rail-node">•</div><div class="rail-track"></div></div>
+            <div class="rail-content"><h4>38 new enrollments</h4><small class="muted">Across all courses — today</small></div>
+          </div>
+          <div class="rail-item">
+            <div class="rail-marker"><div class="rail-node">•</div></div>
+            <div class="rail-content"><h4>Course updated</h4><small class="muted">React Fundamentals — yesterday</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

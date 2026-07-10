@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3: JavaScript — Coursewright</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a href="index.html" class="brand"><span class="brand-mark"></span>Coursewright</a>
+    <nav class="side-nav">
+      <a href="student-dashboard.html"><span class="dot"></span>Dashboard</a>
+      <a href="browse-courses.html"><span class="dot"></span>Browse courses</a>
+      <a href="my-courses.html" class="active"><span class="dot"></span>My courses</a>
+      <a href="progress.html"><span class="dot"></span>Progress</a>
+      <a href="certificate.html"><span class="dot"></span>Certificates</a>
+      <a href="notifications.html"><span class="dot"></span>Notifications</a>
+    </nav>
+    <div class="side-foot">
+      <div class="side-user"><div class="avatar">JL</div><div><div style="color:var(--text-inverse);">Jordan Lee</div><small style="color:rgba(239,238,227,.55);">Student</small></div></div>
+      <a href="login.html" style="display:block; margin-top:14px; font-size:.8rem; opacity:.6;">Log out</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <a href="course-content.html" style="font-size:.83rem;">← Course content</a>
+    <div class="topbar mt-16">
+      <div><div class="eyebrow">Full Stack Development · Module 3</div><h1>JavaScript</h1></div>
+      <label class="check-row" style="border:1px solid var(--line); padding:9px 14px; border-radius:var(--radius); background:var(--card);">
+        <input type="checkbox"> Mark module as completed
+      </label>
+    </div>
+
+    <div class="card card-pad">
+      <p class="mono muted" style="font-size:.8rem;">2 of 5 lessons complete — 40%</p>
+      <div class="progress-bar"><span style="width:40%;"></span></div>
+      <h3 class="mt-24">Lessons</h3>
+      <div class="rail mt-16">
+        <div class="rail-item">
+          <div class="rail-marker"><div class="rail-node done">✓</div><div class="rail-track done"></div></div>
+          <div class="rail-content"><h4>Variables &amp; functions</h4><a href="video-player.html" class="btn btn-sm btn-outline mt-8">Rewatch</a></div>
+        </div>
+        <div class="rail-item">
+          <div class="rail-marker"><div class="rail-node done">✓</div><div class="rail-track done"></div></div>
+          <div class="rail-content"><h4>The DOM</h4><a href="video-player.html" class="btn btn-sm btn-outline mt-8">Rewatch</a></div>
+        </div>
+        <div class="rail-item">
+          <div class="rail-marker"><div class="rail-node current">3</div><div class="rail-track"></div></div>
+          <div class="rail-content"><h4>Events &amp; listeners</h4><p class="muted mb-0">14 min video — handling clicks, input and form submission.</p><a href="video-player.html" class="btn btn-sm btn-primary mt-8">Continue watching</a></div>
+        </div>
+        <div class="rail-item">
+          <div class="rail-marker"><div class="rail-node">4</div><div class="rail-track"></div></div>
+          <div class="rail-content"><h4>Fetch &amp; async/await</h4><p class="muted mb-0">Reading + code samples on asynchronous requests.</p><a href="materials.html" class="btn btn-sm btn-outline mt-8">Open reading</a></div>
+        </div>
+        <div class="rail-item">
+          <div class="rail-marker"><div class="rail-node">5</div></div>
+          <div class="rail-content"><h4>Mini project</h4><p class="muted mb-0">Build a small interactive to-do list using everything above.</p><a href="materials.html" class="btn btn-sm btn-outline mt-8">Open brief</a></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

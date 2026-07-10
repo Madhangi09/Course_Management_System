@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log in — Coursewright</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="auth-shell">
+  <div class="auth-side">
+    <a href="index.html" class="brand"><span class="brand-mark"></span>Coursewright</a>
+    <div>
+      <p class="quote">"The dashboard is the first place I check every morning — it tells me exactly which module I left off on."</p>
+      <div class="rail-h mt-32" style="max-width:340px;">
+        <div class="rail-h-item done"><div class="rail-h-line"></div><div class="rail-h-node">✓</div><div class="rail-h-label">Enroll</div></div>
+        <div class="rail-h-item done"><div class="rail-h-line"></div><div class="rail-h-node">✓</div><div class="rail-h-label">Learn</div></div>
+        <div class="rail-h-item current"><div class="rail-h-line"></div><div class="rail-h-node">3</div><div class="rail-h-label">Track</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="auth-form-wrap">
+    <div class="auth-card">
+      <div class="eyebrow">Welcome back</div>
+      <h2>Log in to your account</h2>
+      <form action="#" method="post">
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" required>
+        </div>
+        <div class="form-row mb-0">
+          <label class="check-row" style="margin:0;"><input type="checkbox" name="remember"> Remember me</label>
+          <a href="forgot-password.html" style="font-size:.83rem;">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block mt-24">Log in</button>
+      </form>
+      <div class="divider">or</div>
+      <a href="admin-dashboard.html" class="btn btn-outline btn-block">Continue as administrator</a>
+      <p class="auth-foot">Don't have an account? <a href="register.html">Register here</a></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register — Coursewright</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="auth-shell">
+  <div class="auth-side">
+    <a href="index.html" class="brand"><span class="brand-mark"></span>Coursewright</a>
+    <div>
+      <p class="quote">"Registration took less than a minute. I was browsing courses right after."</p>
+      <div class="rail mt-32" style="max-width:300px;">
+        <div class="rail-item">
+          <div class="rail-marker"><div class="rail-node done">✓</div><div class="rail-track done"></div></div>
+          <div class="rail-content"><h4 style="color:var(--text-inverse);">Create account</h4><small style="color:rgba(239,238,227,.6);">Name, email, password</small></div>
+        </div>
+        <div class="rail-item">
+          <div class="rail-marker"><div class="rail-node current">2</div></div>
+          <div class="rail-content"><h4 style="color:var(--text-inverse);">Browse the catalog</h4><small style="color:rgba(239,238,227,.6);">Search by category</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="auth-form-wrap">
+    <div class="auth-card">
+      <div class="eyebrow">Join Coursewright</div>
+      <h2>Create your student account</h2>
+      <form action="#" method="post">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" placeholder="Jordan Lee" required>
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label for="department">Department</label>
+          <select id="department" name="department">
+            <option>Computer Science</option>
+            <option>Information Technology</option>
+            <option>Electronics</option>
+            <option>Business Administration</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="At least 8 characters" required>
+          <p class="hint">Stored encrypted — never shown in plain text, even to administrators.</p>
+        </div>
+        <label class="check-row"><input type="checkbox" required> I agree to the terms of use</label>
+        <button type="submit" class="btn btn-primary btn-block mt-24">Create account</button>
+      </form>
+      <p class="auth-foot">Already registered? <a href="login.html">Log in</a></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

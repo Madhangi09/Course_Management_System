@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coursewright — Course Management & Learning Progress Tracking</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topnav">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark"></span>Coursewright</a>
+    <nav>
+      <a href="index.html#modules">Modules</a>
+      <a href="index.html#how">How it works</a>
+      <a href="notifications.html">Updates</a>
+    </nav>
+    <div class="actions">
+      <a href="login.html" class="btn btn-ghost-inverse btn-sm">Log in</a>
+      <a href="register.html" class="btn btn-primary btn-sm">Create account</a>
+    </div>
+  </div>
+</header>
+
+<section style="background:var(--ink); color:var(--text-inverse); padding:90px 0 110px; position:relative; overflow:hidden;">
+  <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 85% 20%, rgba(217,164,65,.14), transparent 50%), radial-gradient(ellipse at 10% 90%, rgba(62,124,124,.28), transparent 55%);"></div>
+  <div class="container" style="position:relative; display:grid; grid-template-columns:1.1fr .9fr; gap:60px; align-items:center;">
+    <div>
+      <div class="eyebrow" style="color:var(--gold);">Student course management &amp; progress tracking</div>
+      <h1 style="color:var(--text-inverse); font-size:3.1rem;">Every course you take, laid out as a track — not a checklist.</h1>
+      <p style="color:rgba(239,238,227,.75); font-size:1.05rem; max-width:520px;">Enroll, learn and measure how far you've gotten in one place. Coursewright turns a syllabus into a visible path from first lesson to certificate, for students and the administrators who run the programs.</p>
+      <div class="flex gap-12 mt-24">
+        <a href="register.html" class="btn btn-primary">Start learning — it's free</a>
+        <a href="login.html" class="btn btn-ghost-inverse">I already have an account</a>
+      </div>
+    </div>
+    <div class="card card-pad" style="background:var(--ink-2); border-color:rgba(239,238,227,.15);">
+      <div class="eyebrow" style="color:var(--gold);">Example track — Full Stack Development</div>
+      <div class="rail-h">
+        <div class="rail-h-item done"><div class="rail-h-line"></div><div class="rail-h-node">✓</div><div class="rail-h-label">HTML</div></div>
+        <div class="rail-h-item done"><div class="rail-h-line"></div><div class="rail-h-node">✓</div><div class="rail-h-label">CSS</div></div>
+        <div class="rail-h-item current"><div class="rail-h-line"></div><div class="rail-h-node">3</div><div class="rail-h-label">JS</div></div>
+        <div class="rail-h-item"><div class="rail-h-line"></div><div class="rail-h-node">4</div><div class="rail-h-label">React</div></div>
+        <div class="rail-h-item"><div class="rail-h-line"></div><div class="rail-h-node">5</div><div class="rail-h-label">Node</div></div>
+        <div class="rail-h-item"><div class="rail-h-line"></div><div class="rail-h-node">6</div><div class="rail-h-label">Mongo</div></div>
+      </div>
+      <p class="mono" style="color:rgba(239,238,227,.6); font-size:.78rem; margin-top:22px;">2 of 6 modules complete — 33%</p>
+      <div class="progress-bar" style="background:rgba(239,238,227,.12); border-color:rgba(239,238,227,.2);"><span style="width:33%;"></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="container" style="padding:80px 0;" id="how">
+  <div class="eyebrow">How it works</div>
+  <h2>Login, enroll, learn, prove it.</h2>
+  <div class="course-grid mt-32">
+    <div class="card card-pad">
+      <span class="tag tag-teal">Step 1</span>
+      <h3 class="mt-16">Create a secure account</h3>
+      <p class="muted">Register with an encrypted password and sign in with a protected session, or reset access anytime via email.</p>
+    </div>
+    <div class="card card-pad">
+      <span class="tag tag-gold">Step 2</span>
+      <h3 class="mt-16">Browse and enroll</h3>
+      <p class="muted">Search the catalog, open a course's full outline, and enroll in a single step — with instant confirmation.</p>
+    </div>
+    <div class="card card-pad">
+      <span class="tag tag-green">Step 3</span>
+      <h3 class="mt-16">Track every module</h3>
+      <p class="muted">Watch lessons, mark modules complete, and see completion percentage update on your dashboard in real time.</p>
+    </div>
+  </div>
+</section>
+
+<section id="modules" style="background:var(--paper-dim); padding:80px 0;">
+  <div class="container">
+    <div class="eyebrow">System modules</div>
+    <h2>Built for both sides of the classroom</h2>
+    <div class="course-grid mt-32">
+      <div class="card card-pad">
+        <h3>For students</h3>
+        <p class="muted">Browse courses, enroll, work through learning materials, track completion, and download certificates once a course is finished.</p>
+        <a href="register.html" class="btn btn-outline btn-sm mt-8">Create a student account</a>
+      </div>
+      <div class="card card-pad">
+        <h3>For administrators</h3>
+        <p class="muted">Add and edit course content, monitor enrollments, and see completion analytics across every course from one dashboard.</p>
+        <a href="admin-dashboard.html" class="btn btn-outline btn-sm mt-8">Open admin dashboard</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark"></span>Coursewright</a>
+    <small>© 2026 Coursewright. Built for the Full Stack Web Development capstone.</small>
+  </div>
+</footer>
+
+</body>
+</html>

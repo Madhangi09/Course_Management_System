@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Content — Full Stack Development</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a href="index.html" class="brand"><span class="brand-mark"></span>Coursewright</a>
+    <nav class="side-nav">
+      <a href="student-dashboard.html"><span class="dot"></span>Dashboard</a>
+      <a href="browse-courses.html"><span class="dot"></span>Browse courses</a>
+      <a href="my-courses.html" class="active"><span class="dot"></span>My courses</a>
+      <a href="progress.html"><span class="dot"></span>Progress</a>
+      <a href="certificate.html"><span class="dot"></span>Certificates</a>
+      <a href="notifications.html"><span class="dot"></span>Notifications</a>
+    </nav>
+    <div class="side-foot">
+      <div class="side-user"><div class="avatar">JL</div><div><div style="color:var(--text-inverse);">Jordan Lee</div><small style="color:rgba(239,238,227,.55);">Student</small></div></div>
+      <a href="login.html" style="display:block; margin-top:14px; font-size:.8rem; opacity:.6;">Log out</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <a href="my-courses.html" style="font-size:.83rem;">← My courses</a>
+    <div class="topbar mt-16">
+      <div><div class="eyebrow">Full Stack Development</div><h1>Course content</h1></div>
+      <div class="mono" style="font-size:.85rem; color:var(--text-muted);">2 of 6 modules complete</div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1.6fr; gap:24px;">
+      <div class="card card-pad">
+        <h3>Modules</h3>
+        <div class="rail mt-16">
+          <div class="rail-item">
+            <div class="rail-marker"><div class="rail-node done">✓</div><div class="rail-track done"></div></div>
+            <div class="rail-content"><a href="module.html"><h4>1. HTML</h4></a><small class="muted">Complete</small></div>
+          </div>
+          <div class="rail-item">
+            <div class="rail-marker"><div class="rail-node done">✓</div><div class="rail-track done"></div></div>
+            <div class="rail-content"><a href="module.html"><h4>2. CSS</h4></a><small class="muted">Complete</small></div>
+          </div>
+          <div class="rail-item">
+            <div class="rail-marker"><div class="rail-node current">3</div><div class="rail-track"></div></div>
+            <div class="rail-content"><a href="module.html"><h4>3. JavaScript</h4></a><small class="muted">In progress — 2 of 5 lessons</small></div>
+          </div>
+          <div class="rail-item">
+            <div class="rail-marker"><div class="rail-node">4</div><div class="rail-track"></div></div>
+            <div class="rail-content"><a href="module.html" style="opacity:.55;"><h4>4. React</h4></a><small class="muted">Locked</small></div>
+          </div>
+          <div class="rail-item">
+            <div class="rail-marker"><div class="rail-node">5</div><div class="rail-track"></div></div>
+            <div class="rail-content"><a href="module.html" style="opacity:.55;"><h4>5. Node.js</h4></a><small class="muted">Locked</small></div>
+          </div>
+          <div class="rail-item">
+            <div class="rail-marker"><div class="rail-node">6</div></div>
+            <div class="rail-content"><a href="module.html" style="opacity:.55;"><h4>6. MongoDB</h4></a><small class="muted">Locked</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-pad">
+        <span class="tag tag-gold">Current module</span>
+        <h2 class="mt-16">Module 3 — JavaScript</h2>
+        <p class="muted">DOM manipulation, events, and asynchronous requests. Five lessons, one short exercise each.</p>
+        <table class="mt-16">
+          <thead><tr><th>Lesson</th><th>Type</th><th>Status</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Variables &amp; functions</td><td>Video</td><td><span class="tag tag-teal">Done</span></td><td><a href="video-player.html" class="btn btn-sm btn-outline">Watch</a></td></tr>
+            <tr><td>The DOM</td><td>Video</td><td><span class="tag tag-teal">Done</span></td><td><a href="video-player.html" class="btn btn-sm btn-outline">Watch</a></td></tr>
+            <tr><td>Events &amp; listeners</td><td>Video</td><td><span class="tag tag-gold">In progress</span></td><td><a href="video-player.html" class="btn btn-sm btn-primary">Continue</a></td></tr>
+            <tr><td>Fetch &amp; async/await</td><td>Reading</td><td><span class="tag">Not started</span></td><td><a href="materials.html" class="btn btn-sm btn-outline">Open</a></td></tr>
+            <tr><td>Mini project</td><td>Materials</td><td><span class="tag">Not started</span></td><td><a href="materials.html" class="btn btn-sm btn-outline">Open</a></td></tr>
+          </tbody>
+        </table>
+        <a href="module.html" class="btn btn-dark w-100 mt-16">Open module detail</a>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

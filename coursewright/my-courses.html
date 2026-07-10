@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Courses — Coursewright</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a href="index.html" class="brand"><span class="brand-mark"></span>Coursewright</a>
+    <nav class="side-nav">
+      <a href="student-dashboard.html"><span class="dot"></span>Dashboard</a>
+      <a href="browse-courses.html"><span class="dot"></span>Browse courses</a>
+      <a href="my-courses.html" class="active"><span class="dot"></span>My courses</a>
+      <a href="progress.html"><span class="dot"></span>Progress</a>
+      <a href="certificate.html"><span class="dot"></span>Certificates</a>
+      <a href="notifications.html"><span class="dot"></span>Notifications</a>
+    </nav>
+    <div class="side-foot">
+      <div class="side-user"><div class="avatar">JL</div><div><div style="color:var(--text-inverse);">Jordan Lee</div><small style="color:rgba(239,238,227,.55);">Student</small></div></div>
+      <a href="login.html" style="display:block; margin-top:14px; font-size:.8rem; opacity:.6;">Log out</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div><div class="eyebrow">Enrolled</div><h1>My courses</h1></div>
+      <a href="browse-courses.html" class="btn btn-outline">Browse more courses</a>
+    </div>
+
+    <div class="course-grid">
+      <div class="course-card">
+        <div class="course-thumb"></div>
+        <div class="course-body">
+          <span class="tag tag-gold">In progress</span>
+          <h3>Full Stack Development</h3>
+          <p class="muted">Module 3 of 6 — JavaScript</p>
+          <div class="progress-bar"><span style="width:33%;"></span></div>
+          <div class="course-foot"><span class="mono muted" style="font-size:.78rem;">33%</span><a href="course-content.html" class="btn btn-primary btn-sm">Resume</a></div>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-thumb"></div>
+        <div class="course-body">
+          <span class="tag tag-gold">In progress</span>
+          <h3>React Fundamentals</h3>
+          <p class="muted">Module 2 of 4 — Components</p>
+          <div class="progress-bar"><span style="width:50%;"></span></div>
+          <div class="course-foot"><span class="mono muted" style="font-size:.78rem;">50%</span><a href="course-content.html" class="btn btn-primary btn-sm">Resume</a></div>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-thumb"></div>
+        <div class="course-body">
+          <span class="tag tag-teal">Completed</span>
+          <h3>Database Management (DBMS)</h3>
+          <p class="muted">All 5 modules complete</p>
+          <div class="progress-bar"><span style="width:100%;"></span></div>
+          <div class="course-foot"><span class="mono muted" style="font-size:.78rem;">100%</span><a href="certificate.html" class="btn btn-outline btn-sm">Certificate</a></div>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-thumb"></div>
+        <div class="course-body">
+          <span class="tag tag-red">Not started</span>
+          <h3>Python for Data Analysis</h3>
+          <p class="muted">0 of 7 modules complete</p>
+          <div class="progress-bar"><span style="width:0%;"></span></div>
+          <div class="course-foot"><span class="mono muted" style="font-size:.78rem;">0%</span><a href="course-content.html" class="btn btn-primary btn-sm">Start</a></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

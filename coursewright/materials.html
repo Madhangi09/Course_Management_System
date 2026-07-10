@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning Materials — Fetch &amp; async/await</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a href="index.html" class="brand"><span class="brand-mark"></span>Coursewright</a>
+    <nav class="side-nav">
+      <a href="student-dashboard.html"><span class="dot"></span>Dashboard</a>
+      <a href="browse-courses.html"><span class="dot"></span>Browse courses</a>
+      <a href="my-courses.html" class="active"><span class="dot"></span>My courses</a>
+      <a href="progress.html"><span class="dot"></span>Progress</a>
+      <a href="certificate.html"><span class="dot"></span>Certificates</a>
+      <a href="notifications.html"><span class="dot"></span>Notifications</a>
+    </nav>
+    <div class="side-foot">
+      <div class="side-user"><div class="avatar">JL</div><div><div style="color:var(--text-inverse);">Jordan Lee</div><small style="color:rgba(239,238,227,.55);">Student</small></div></div>
+      <a href="login.html" style="display:block; margin-top:14px; font-size:.8rem; opacity:.6;">Log out</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <a href="module.html" style="font-size:.83rem;">← Module 3: JavaScript</a>
+    <div class="topbar mt-16">
+      <div><div class="eyebrow">Lesson 4 — Reading</div><h1>Fetch &amp; async/await</h1></div>
+      <a href="module.html" class="btn btn-primary">Mark lesson complete</a>
+    </div>
+
+    <div style="display:grid; grid-template-columns:2fr 1fr; gap:24px;">
+      <div class="card card-pad">
+        <p>The Fetch API lets a page request data from a server without reloading. Paired with <code>async</code> and <code>await</code>, asynchronous code can be written and read top to bottom, like synchronous code.</p>
+        <pre style="background:var(--ink); color:var(--text-inverse); padding:18px; border-radius:var(--radius); overflow:auto; font-family:var(--font-mono); font-size:.82rem; line-height:1.6;">async function loadCourses() {
+  const res = await fetch('/api/courses');
+  const data = await res.json();
+  return data;
+}</pre>
+        <p>Wrap calls in <code>try/catch</code> to handle network failures gracefully, and always check <code>res.ok</code> before assuming the response succeeded.</p>
+        <h3 class="mt-24">Downloadable resources</h3>
+        <div class="table-wrap" style="border:none; box-shadow:none;">
+          <table>
+            <tbody>
+              <tr><td>📄 Fetch &amp; async cheat sheet</td><td style="width:100px;"><a href="#" class="btn btn-sm btn-outline">Download</a></td></tr>
+              <tr><td>💻 Starter code — mini project</td><td style="width:100px;"><a href="#" class="btn btn-sm btn-outline">Download</a></td></tr>
+              <tr><td>📄 Module 3 slides (PDF)</td><td style="width:100px;"><a href="#" class="btn btn-sm btn-outline">Download</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card card-pad">
+        <h3>Module 3 progress</h3>
+        <p class="mono muted" style="font-size:.8rem;">3 of 5 lessons complete</p>
+        <div class="progress-bar"><span style="width:60%;"></span></div>
+        <a href="module.html" class="btn btn-outline w-100 mt-16">Back to module overview</a>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

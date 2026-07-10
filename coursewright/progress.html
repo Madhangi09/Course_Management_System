@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Progress — Coursewright</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a href="index.html" class="brand"><span class="brand-mark"></span>Coursewright</a>
+    <nav class="side-nav">
+      <a href="student-dashboard.html"><span class="dot"></span>Dashboard</a>
+      <a href="browse-courses.html"><span class="dot"></span>Browse courses</a>
+      <a href="my-courses.html"><span class="dot"></span>My courses</a>
+      <a href="progress.html" class="active"><span class="dot"></span>Progress</a>
+      <a href="certificate.html"><span class="dot"></span>Certificates</a>
+      <a href="notifications.html"><span class="dot"></span>Notifications</a>
+    </nav>
+    <div class="side-foot">
+      <div class="side-user"><div class="avatar">JL</div><div><div style="color:var(--text-inverse);">Jordan Lee</div><small style="color:rgba(239,238,227,.55);">Student</small></div></div>
+      <a href="login.html" style="display:block; margin-top:14px; font-size:.8rem; opacity:.6;">Log out</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar"><div><div class="eyebrow">Learning progress</div><h1>Your progress across every course</h1></div></div>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="num">74%</div><div class="lbl">Overall completion</div></div>
+      <div class="stat"><div class="num">11</div><div class="lbl">Modules completed</div></div>
+      <div class="stat"><div class="num">4</div><div class="lbl">Modules pending</div></div>
+      <div class="stat"><div class="num">1</div><div class="lbl">Courses finished</div></div>
+    </div>
+
+    <div class="card card-pad">
+      <table>
+        <thead><tr><th>Course</th><th>Completed modules</th><th>Pending modules</th><th style="width:220px;">Progress</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Full Stack Development</strong></td>
+            <td>HTML, CSS</td>
+            <td>JavaScript, React, Node.js, MongoDB</td>
+            <td><div class="progress-bar"><span style="width:33%;"></span></div><small class="mono muted">33%</small></td>
+          </tr>
+          <tr>
+            <td><strong>React Fundamentals</strong></td>
+            <td>Intro, Components</td>
+            <td>Hooks, State management</td>
+            <td><div class="progress-bar"><span style="width:50%;"></span></div><small class="mono muted">50%</small></td>
+          </tr>
+          <tr>
+            <td><strong>Database Management (DBMS)</strong></td>
+            <td>All 5 modules</td>
+            <td>—</td>
+            <td><div class="progress-bar"><span style="width:100%;"></span></div><small class="mono muted">100%</small></td>
+          </tr>
+          <tr>
+            <td><strong>Python for Data Analysis</strong></td>
+            <td>—</td>
+            <td>All 7 modules</td>
+            <td><div class="progress-bar"><span style="width:0%;"></span></div><small class="mono muted">0%</small></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Dashboard — Coursewright</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a href="index.html" class="brand"><span class="brand-mark"></span>Coursewright</a>
+    <nav class="side-nav">
+      <a href="student-dashboard.html" class="active"><span class="dot"></span>Dashboard</a>
+      <a href="browse-courses.html"><span class="dot"></span>Browse courses</a>
+      <a href="my-courses.html"><span class="dot"></span>My courses</a>
+      <a href="progress.html"><span class="dot"></span>Progress</a>
+      <a href="certificate.html"><span class="dot"></span>Certificates</a>
+      <a href="notifications.html"><span class="dot"></span>Notifications</a>
+    </nav>
+    <div class="side-foot">
+      <div class="side-user">
+        <div class="avatar">JL</div>
+        <div><div style="color:var(--text-inverse);">Jordan Lee</div><small style="color:rgba(239,238,227,.55);">Student</small></div>
+      </div>
+      <a href="login.html" style="display:block; margin-top:14px; font-size:.8rem; opacity:.6;">Log out</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <div class="eyebrow">Welcome back</div>
+        <h1>Hi Jordan, here's where you stand.</h1>
+      </div>
+      <a href="browse-courses.html" class="btn btn-primary">Browse courses</a>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="num">4</div><div class="lbl">Courses enrolled</div></div>
+      <div class="stat"><div class="num">1</div><div class="lbl">Courses completed</div><div class="delta up">+1 this month</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl">Ongoing courses</div></div>
+      <div class="stat"><div class="num">74%</div><div class="lbl">Average progress</div><div class="delta up">↑ 12% this week</div></div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1.4fr 1fr; gap:24px;">
+      <div class="card card-pad">
+        <div class="topbar" style="margin-bottom:18px;">
+          <h3 style="margin:0;">Continue learning</h3>
+          <a href="my-courses.html" style="font-size:.83rem;">View all →</a>
+        </div>
+        <div class="table-wrap" style="border:none; box-shadow:none;">
+          <table>
+            <thead><tr><th>Course</th><th>Progress</th><th></th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Full Stack Development</strong><br><small class="muted">Module 3 of 6 — JavaScript</small></td>
+                <td style="width:160px;"><div class="progress-bar"><span style="width:33%;"></span></div></td>
+                <td><a href="course-content.html" class="btn btn-outline btn-sm">Resume</a></td>
+              </tr>
+              <tr>
+                <td><strong>React Fundamentals</strong><br><small class="muted">Module 2 of 4 — Components</small></td>
+                <td style="width:160px;"><div class="progress-bar"><span style="width:50%;"></span></div></td>
+                <td><a href="course-content.html" class="btn btn-outline btn-sm">Resume</a></td>
+              </tr>
+              <tr>
+                <td><strong>Database Management (DBMS)</strong><br><small class="muted">Completed</small></td>
+                <td style="width:160px;"><div class="progress-bar"><span style="width:100%;"></span></div></td>
+                <td><a href="certificate.html" class="btn btn-outline btn-sm">Certificate</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card card-pad">
+        <h3>Recent notifications</h3>
+        <div class="rail mt-16">
+          <div class="rail-item">
+            <div class="rail-marker"><div class="rail-node current">•</div><div class="rail-track"></div></div>
+            <div class="rail-content"><h4>Enrollment confirmed</h4><small class="muted">React Fundamentals — just now</small></div>
+          </div>
+          <div class="rail-item">
+            <div class="rail-marker"><div class="rail-node">•</div><div class="rail-track"></div></div>
+            <div class="rail-content"><h4>Certificate ready</h4><small class="muted">Database Management — 2 days ago</small></div>
+          </div>
+          <div class="rail-item">
+            <div class="rail-marker"><div class="rail-node">•</div></div>
+            <div class="rail-content"><h4>New course added</h4><small class="muted">Cloud Computing Basics — 4 days ago</small></div>
+          </div>
+        </div>
+        <a href="notifications.html" class="btn btn-outline btn-sm w-100 mt-16">View all notifications</a>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

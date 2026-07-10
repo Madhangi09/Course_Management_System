@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manage Courses — Coursewright</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a href="index.html" class="brand"><span class="brand-mark"></span>Coursewright</a>
+    <nav class="side-nav">
+      <a href="admin-dashboard.html"><span class="dot"></span>Dashboard</a>
+      <a href="courses.html" class="active"><span class="dot"></span>Courses</a>
+      <a href="add-course.html"><span class="dot"></span>Add course</a>
+      <a href="notifications.html"><span class="dot"></span>Notifications</a>
+    </nav>
+    <div class="side-foot">
+      <div class="side-user"><div class="avatar">AK</div><div><div style="color:var(--text-inverse);">Anita Kapoor</div><small style="color:rgba(239,238,227,.55);">Administrator</small></div></div>
+      <a href="login.html" style="display:block; margin-top:14px; font-size:.8rem; opacity:.6;">Log out</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div><div class="eyebrow">Manage</div><h1>Courses</h1></div>
+      <a href="add-course.html" class="btn btn-primary">+ Add course</a>
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-head">
+        <div class="searchbox" style="min-width:280px;"><span>⌕</span><input type="text" placeholder="Search courses"></div>
+        <span class="muted mono" style="font-size:.8rem;">6 courses</span>
+      </div>
+      <table class="mt-16">
+        <thead><tr><th>Course</th><th>Instructor</th><th>Category</th><th>Duration</th><th>Enrolled</th><th></th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Full Stack Development</strong></td>
+            <td>M. Fernandez</td>
+            <td><span class="tag tag-teal">Web</span></td>
+            <td>12 weeks</td>
+            <td>184</td>
+            <td class="row-actions"><a href="course-details.html" class="btn btn-sm btn-outline">View</a><a href="edit-course.html" class="btn btn-sm btn-outline">Edit</a></td>
+          </tr>
+          <tr>
+            <td><strong>React Fundamentals</strong></td>
+            <td>A. Cole</td>
+            <td><span class="tag tag-teal">Web</span></td>
+            <td>6 weeks</td>
+            <td>210</td>
+            <td class="row-actions"><a href="course-details.html" class="btn btn-sm btn-outline">View</a><a href="edit-course.html" class="btn btn-sm btn-outline">Edit</a></td>
+          </tr>
+          <tr>
+            <td><strong>Database Management (DBMS)</strong></td>
+            <td>R. Iyer</td>
+            <td><span class="tag tag-gold">Database</span></td>
+            <td>8 weeks</td>
+            <td>399</td>
+            <td class="row-actions"><a href="course-details.html" class="btn btn-sm btn-outline">View</a><a href="edit-course.html" class="btn btn-sm btn-outline">Edit</a></td>
+          </tr>
+          <tr>
+            <td><strong>Python for Data Analysis</strong></td>
+            <td>S. Park</td>
+            <td><span class="tag">AI</span></td>
+            <td>10 weeks</td>
+            <td>301</td>
+            <td class="row-actions"><a href="course-details.html" class="btn btn-sm btn-outline">View</a><a href="edit-course.html" class="btn btn-sm btn-outline">Edit</a></td>
+          </tr>
+          <tr>
+            <td><strong>Cloud Computing Basics</strong></td>
+            <td>D. Nguyen</td>
+            <td><span class="tag">Programming</span></td>
+            <td>5 weeks</td>
+            <td>96</td>
+            <td class="row-actions"><a href="course-details.html" class="btn btn-sm btn-outline">View</a><a href="edit-course.html" class="btn btn-sm btn-outline">Edit</a></td>
+          </tr>
+          <tr>
+            <td><strong>UI/UX Design Principles</strong></td>
+            <td>L. Moreau</td>
+            <td><span class="tag">Programming</span></td>
+            <td>4 weeks</td>
+            <td>14</td>
+            <td class="row-actions"><a href="course-details.html" class="btn btn-sm btn-outline">View</a><a href="edit-course.html" class="btn btn-sm btn-outline">Edit</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+</body>
+</html>
