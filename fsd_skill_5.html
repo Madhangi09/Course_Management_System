@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registrar — Course Portal</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="loading-bar"></div>
+  <nav id="navbar"></nav>
+
+  <main>
+    <!-- LOGIN VIEW -->
+    <section data-view="login" class="is-active">
+      <div class="auth-shell">
+        <span class="eyebrow">Registrar's Office</span>
+        <h1 class="display">Sign in</h1>
+        <ul id="login-errors" class="form-errors"></ul>
+        <form id="login-form" novalidate>
+          <label>Email
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label>Password
+            <input type="password" name="password" autocomplete="current-password" required />
+          </label>
+          <button class="btn btn--primary" type="submit">Sign in</button>
+        </form>
+        <p class="switch-view">
+          New here? <a href="#" data-goto-view="register">Create an account</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- REGISTER VIEW -->
+    <section data-view="register">
+      <div class="auth-shell">
+        <span class="eyebrow">Registrar's Office</span>
+        <h1 class="display">Create account</h1>
+        <ul id="register-errors" class="form-errors"></ul>
+        <form id="register-form" novalidate>
+          <label>Full name
+            <input type="text" name="name" autocomplete="name" required />
+          </label>
+          <label>Email
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label>Password
+            <input type="password" name="password" autocomplete="new-password" required />
+          </label>
+          <label>Confirm password
+            <input type="password" name="confirmPassword" autocomplete="new-password" required />
+          </label>
+          <button class="btn btn--primary" type="submit">Create account</button>
+        </form>
+        <p class="switch-view">
+          Already registered? <a href="#" data-goto-view="login">Sign in</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- DASHBOARD VIEW -->
+    <section data-view="dashboard">
+      <div class="dashboard-head">
+        <span class="eyebrow">Fall Term Catalog</span>
+        <h2 class="display">Course Ledger</h2>
+        <p class="muted">Enroll or drop courses below — the ledger updates live.</p>
+      </div>
+      <div id="course-grid"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
