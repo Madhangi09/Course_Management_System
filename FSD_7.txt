@@ -1,0 +1,860 @@
+// App.jsx
+// Full React application: Mock API + Fetch + Context API + Dashboard
+// Run with: npm run dev
+
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+
+/* =========================
+   MOCK BACKEND / MOCK API
+   ========================= */
+
+const mockDatabase = {
+  students: [
+    {
+      id: 1,
+      name: "Madhangi B",
+      email: "madhangi@gmail.com",
+      department: "Computer Science with AI",
+      year: "3rd Year",
+    },
+    {
+      id: 2,
+      name: "Ananya Sharma",
+      email: "ananya@gmail.com",
+      department: "Computer Science",
+      year: "2nd Year",
+    },
+  ],
+
+  courses: [
+    {
+      id: 101,
+      name: "Full Stack Web Development",
+      instructor: "Dr. Kumar",
+      duration: "12 Weeks",
+    },
+    {
+      id: 102,
+      name: "Artificial Intelligence",
+      instructor: "Dr. Priya",
+      duration: "10 Weeks",
+    },
+    {
+      id: 103,
+      name: "Machine Learning",
+      instructor: "Mr. Arun",
+      duration: "8 Weeks",
+    },
+    {
+      id: 104,
+      name: "Database Management",
+      instructor: "Ms. Divya",
+      duration: "6 Weeks",
+    },
+  ],
+
+  enrollments: [
+    {
+      id: 1,
+      studentId: 1,
+      courseId: 101,
+      status: "Enrolled",
+      progress: 75,
+    },
+    {
+      id: 2,
+      studentId: 1,
+      courseId: 102,
+      status: "In Progress",
+      progress: 60,
+    },
+    {
+      id: 3,
+      studentId: 1,
+      courseId: 103,
+      status: "Completed",
+      progress: 100,
+    },
+    {
+      id: 4,
+      studentId: 1,
+      courseId: 104,
+      status: "Enrolled",
+      progress: 30,
+    },
+  ],
+};
+
+// Mock Fetch API
+const mockFetch = (url) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      try {
+        let data;
+
+        if (url === "/api/students") {
+          data = mockDatabase.students;
+        } else if (url === "/api/courses") {
+          data = mockDatabase.courses;
+        } else if (url === "/api/enrollments") {
+          data = mockDatabase.enrollments;
+        } else {
+          throw new Error("API endpoint not found");
+        }
+
+        resolve({
+          ok: true,
+          json: async () => data,
+        });
+      } catch (error) {
+        reject(error);
+      }
+    }, 800);
+  });
+};
+
+/* =========================
+   CONTEXT API
+   ========================= */
+
+const AppContext = createContext();
+
+const AppProvider = ({ children }) => {
+  const [student, setStudent] = useState(null);
+  const [courses, setCourses] = useState([]);
+  const [enrollments, setEnrollments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      setError("");
+
+      const [studentsResponse, coursesResponse, enrollmentResponse] =
+        await Promise.all([
+          mockFetch("/api/students"),
+          mockFetch("/api/courses"),
+          mockFetch("/api/enrollments"),
+        ]);
+
+      if (
+        !studentsResponse.ok ||
+        !coursesResponse.ok ||
+        !enrollmentResponse.ok
+      ) {
+        throw new Error("Failed to fetch API data");
+      }
+
+      const students = await studentsResponse.json();
+      const coursesData = await coursesResponse.json();
+      const enrollmentData = await enrollmentResponse.json();
+
+      setStudent(students[0]);
+      setCourses(coursesData);
+      setEnrollments(enrollmentData);
+    } catch (err) {
+      setError("Unable to load data from mock API.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const logout = () => {
+    setIsLoggedIn(false);
+  };
+
+  const login = () => {
+    setIsLoggedIn(true);
+    fetchData();
+  };
+
+  return (
+    <AppContext.Provider
+      value={{
+        student,
+        courses,
+        enrollments,
+        loading,
+        error,
+        isLoggedIn,
+        login,
+        logout,
+        refreshData: fetchData,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  );
+};
+
+/* =========================
+   LOGIN
+   ========================= */
+
+const Login = () => {
+  const { login } = useContext(AppContext);
+
+  return (
+    <div className="login-page">
+      <div className="login-box">
+        <h1>Student Portal</h1>
+        <p>Full Stack Web Development</p>
+
+        <input
+          type="email"
+          placeholder="Email"
+          defaultValue="madhangi@gmail.com"
+        />
+
+        <input
+          type="password"
+          placeholder="Password"
+          defaultValue="123456"
+        />
+
+        <button onClick={login}>Login</button>
+      </div>
+    </div>
+  );
+};
+
+/* =========================
+   STUDENT INFORMATION
+   ========================= */
+
+const StudentCard = () => {
+  const { student } = useContext(AppContext);
+
+  if (!student) return null;
+
+  return (
+    <div className="student-card">
+      <div className="profile">
+        <div className="avatar">
+          {student.name.charAt(0)}
+        </div>
+
+        <div>
+          <h2>{student.name}</h2>
+          <p>{student.email}</p>
+        </div>
+      </div>
+
+      <div className="student-details">
+        <div>
+          <span>Department</span>
+          <strong>{student.department}</strong>
+        </div>
+
+        <div>
+          <span>Year</span>
+          <strong>{student.year}</strong>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/* =========================
+   COURSE CARD
+   ========================= */
+
+const CourseCard = ({ course, enrollment }) => {
+  return (
+    <div className="course-card">
+      <div className="course-icon">📚</div>
+
+      <div className="course-content">
+        <h3>{course.name}</h3>
+
+        <p>
+          <b>Instructor:</b> {course.instructor}
+        </p>
+
+        <p>
+          <b>Duration:</b> {course.duration}
+        </p>
+
+        {enrollment && (
+          <>
+            <div className="status-row">
+              <span
+                className={`status ${
+                  enrollment.status === "Completed"
+                    ? "completed"
+                    : enrollment.status === "In Progress"
+                    ? "progress-status"
+                    : "enrolled"
+                }`}
+              >
+                {enrollment.status}
+              </span>
+
+              <span>{enrollment.progress}%</span>
+            </div>
+
+            <div className="progress-bar">
+              <div
+                className="progress"
+                style={{ width: `${enrollment.progress}%` }}
+              ></div>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+
+/* =========================
+   DASHBOARD
+   ========================= */
+
+const Dashboard = () => {
+  const {
+    student,
+    courses,
+    enrollments,
+    loading,
+    error,
+    logout,
+    refreshData,
+  } = useContext(AppContext);
+
+  if (loading) {
+    return (
+      <div className="center">
+        <div className="loader"></div>
+        <h2>Loading data...</h2>
+        <p>Fetching information from Mock API</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="center error-box">
+        <h2>❌ Error</h2>
+        <p>{error}</p>
+        <button onClick={refreshData}>Try Again</button>
+      </div>
+    );
+  }
+
+  const enrolledCourses = courses.filter((course) =>
+    enrollments.some((item) => item.courseId === course.id)
+  );
+
+  const completedCourses = enrollments.filter(
+    (item) => item.status === "Completed"
+  ).length;
+
+  const inProgressCourses = enrollments.filter(
+    (item) => item.status === "In Progress"
+  ).length;
+
+  return (
+    <div className="app">
+      <header>
+        <div>
+          <h1>Student Dashboard</h1>
+          <p>Welcome back, {student.name}</p>
+        </div>
+
+        <div className="header-buttons">
+          <button className="refresh" onClick={refreshData}>
+            ↻ Refresh
+          </button>
+
+          <button className="logout" onClick={logout}>
+            Logout
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <StudentCard />
+
+        <section className="statistics">
+          <div className="stat-card">
+            <div className="stat-icon">📚</div>
+            <div>
+              <h2>{enrolledCourses.length}</h2>
+              <p>Enrolled Courses</p>
+            </div>
+          </div>
+
+          <div className="stat-card">
+            <div className="stat-icon">✅</div>
+            <div>
+              <h2>{completedCourses}</h2>
+              <p>Completed</p>
+            </div>
+          </div>
+
+          <div className="stat-card">
+            <div className="stat-icon">⏳</div>
+            <div>
+              <h2>{inProgressCourses}</h2>
+              <p>In Progress</p>
+            </div>
+          </div>
+
+          <div className="stat-card">
+            <div className="stat-icon">🎓</div>
+            <div>
+              <h2>{courses.length}</h2>
+              <p>Total Courses</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div className="section-title">
+            <h2>My Courses</h2>
+            <span>{enrolledCourses.length} Courses</span>
+          </div>
+
+          <div className="courses">
+            {enrolledCourses.map((course) => {
+              const enrollment = enrollments.find(
+                (item) => item.courseId === course.id
+              );
+
+              return (
+                <CourseCard
+                  key={course.id}
+                  course={course}
+                  enrollment={enrollment}
+                />
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="api-info">
+          <h2>Mock API Status</h2>
+
+          <div className="api-row">
+            <span>Student API</span>
+            <span className="online">● Connected</span>
+          </div>
+
+          <div className="api-row">
+            <span>Course API</span>
+            <span className="online">● Connected</span>
+          </div>
+
+          <div className="api-row">
+            <span>Enrollment API</span>
+            <span className="online">● Connected</span>
+          </div>
+
+          <div className="api-row">
+            <span>State Management</span>
+            <span className="online">● Context API</span>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>Full Stack Web Development | React + Mock API + Context API</p>
+      </footer>
+    </div>
+  );
+};
+
+/* =========================
+   MAIN APP
+   ========================= */
+
+const App = () => {
+  const { isLoggedIn } = useContext(AppContext);
+
+  return isLoggedIn ? <Dashboard /> : <Login />;
+};
+
+/* =========================
+   RENDER APPLICATION
+   ========================= */
+
+createRoot(document.getElementById("root")).render(
+  <AppProvider>
+    <App />
+  </AppProvider>
+);
+
+/* =========================
+   CSS
+   ========================= */
+
+const style = document.createElement("style");
+
+style.textContent = `
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  color: #222;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 11px 18px;
+  font-size: 14px;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+header {
+  background: #172554;
+  color: white;
+  padding: 25px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+header p {
+  opacity: 0.8;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.refresh {
+  background: white;
+  color: #172554;
+}
+
+.logout {
+  background: #dc2626;
+  color: white;
+}
+
+main {
+  width: 86%;
+  max-width: 1200px;
+  margin: 30px auto;
+}
+
+.student-card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.avatar {
+  width: 65px;
+  height: 65px;
+  background: #2563eb;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.profile h2 {
+  margin-bottom: 5px;
+}
+
+.profile p {
+  color: #666;
+}
+
+.student-details {
+  display: flex;
+  gap: 60px;
+  margin-top: 25px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.student-details span {
+  display: block;
+  color: #777;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.statistics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin: 25px 0;
+}
+
+.stat-card {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+}
+
+.stat-icon {
+  font-size: 30px;
+}
+
+.stat-card h2 {
+  font-size: 25px;
+}
+
+.stat-card p {
+  color: #777;
+  font-size: 14px;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0 15px;
+}
+
+.section-title span {
+  color: #666;
+}
+
+.courses {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.course-card {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  display: flex;
+  gap: 15px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+}
+
+.course-icon {
+  font-size: 30px;
+}
+
+.course-content {
+  width: 100%;
+}
+
+.course-content h3 {
+  margin-bottom: 10px;
+}
+
+.course-content p {
+  color: #666;
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  align-items: center;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.enrolled {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.progress-status {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.progress-bar {
+  height: 7px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: #2563eb;
+  border-radius: 10px;
+}
+
+.api-info {
+  margin-top: 30px;
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+}
+
+.api-info h2 {
+  margin-bottom: 15px;
+}
+
+.api-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.online {
+  color: #16a34a;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #777;
+}
+
+.center {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  width: 45px;
+  height: 45px;
+  border: 5px solid #ddd;
+  border-top: 5px solid #2563eb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+.error-box button {
+  margin-top: 15px;
+  background: #2563eb;
+  color: white;
+}
+
+.login-page {
+  min-height: 100vh;
+  background: #172554;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+  background: white;
+  width: 350px;
+  padding: 35px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.login-box h1 {
+  margin-bottom: 8px;
+}
+
+.login-box p {
+  color: #777;
+  margin-bottom: 25px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+}
+
+.login-box button {
+  width: 100%;
+  background: #2563eb;
+  color: white;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 800px) {
+  .statistics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .courses {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 500px) {
+  .statistics {
+    grid-template-columns: 1fr;
+  }
+
+  .student-details {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  main {
+    width: 92%;
+  }
+}
+`;
+
+document.head.appendChild(style);
