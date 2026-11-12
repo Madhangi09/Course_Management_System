@@ -1,0 +1,5 @@
+PORT=5002
+NODE_ENV=development
+MONGO_URI=mongodb://127.0.0.1:27017/task14_database
+JWT_SECRET=task14_secure_secret_change_this_to_a_long_random_value
+CLIENT_URL=http://localhost:3000
